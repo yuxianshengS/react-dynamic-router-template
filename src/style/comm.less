@@ -1,0 +1,179 @@
+
+
+.main-content {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(46, 65, 101);
+}
+
+.app-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.main-class {
+  padding: 10px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.width-all {
+  width: 100%;
+
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.move {
+  cursor: move;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-class(@i: 0) when (@i <=1000) {
+  .flex-@{i} {
+    flex: unit(@i, px) !important;
+  }
+
+  .flex-class(@i + 1);
+}
+
+.flex-class();
+
+.flex-center {
+  &:extend(.flex);
+  align-items: center;
+}
+
+.flex-vcenter {
+  &:extend(.flex);
+  align-items: center;
+}
+
+.flex-vhcenter {
+  &:extend(.flex);
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-weap {
+  &:extend(.flex);
+  flex-wrap: wrap;
+}
+
+.flex-between {
+  &:extend(.flex);
+  justify-content: space-between;
+}
+
+.flex-flex-end {
+  &:extend(.flex);
+  justify-content: flex-end;
+}
+
+.margin-padding-class(@i: 0) when (@i <=500) {
+  .mt-@{i} {
+    margin-top: unit(@i, px);
+  }
+
+  .mb-@{i} {
+    margin-bottom: unit(@i, px);
+  }
+
+  .ml-@{i} {
+    margin-left: unit(@i, px);
+  }
+
+  .mr-@{i} {
+    margin-right: unit(@i, px);
+  }
+
+  .mtb-@{i} {
+    margin-top: unit(@i, px);
+    margin-bottom: unit(@i, px);
+  }
+
+  .mlr-@{i} {
+    margin-left: unit(@i, px);
+    margin-right: unit(@i, px);
+  }
+
+  .pt-@{i} {
+    padding-top: unit(@i, px);
+  }
+
+  .pb-@{i} {
+    padding-bottom: unit(@i, px) !important;
+  }
+
+  .pl-@{i} {
+    padding-left: unit(@i, px);
+  }
+
+  .pr-@{i} {
+    padding-right: unit(@i, px);
+  }
+
+  .ptb-@{i} {
+    padding-top: unit(@i, px) !important;
+    padding-bottom: unit(@i, px) !important;
+  }
+
+  .plr-@{i} {
+    padding-left: unit(@i, px);
+    padding-right: unit(@i, px);
+  }
+
+  .margin-padding-class(@i + 1);
+}
+
+.margin-padding-class();
+
+.font-size-class(@i: 0) when (@i <=500) {
+  .fs-@{i} {
+    font-size: unit(@i, px);
+  }
+
+  .font-size-class(@i + 1);
+}
+
+.font-size-class();
+
+.width-class(@i: 0) when (@i <=1000) {
+  .w-@{i} {
+    width: unit(@i, px) !important;
+  }
+
+  .h-@{i} {
+    height: unit(@i, px) !important;
+  }
+
+  .width-class(@i + 1);
+}
+
+.width-class();
+
+.w-all {
+  width: 100%;
+}
+
+.h-all {
+  height: 100%;
+}

@@ -1,0 +1,13 @@
+@import url("@/assets/icon/iconfont.css");
+@import url("./comm.less");
+@import url("./variables.less");
+
+body {
+  margin: 0;
+  pad: 0;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}

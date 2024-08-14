@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Layout, Breadcrumb } from "antd";
-import { useLocation, Link, useNavigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./main.module.less";
 import { DayNightSwitch, ModeSwitch } from "@/components";
+import { AvatarOperation } from "../component";
 import { MenuPage } from "./component";
 function LayoutPage() {
   const { Header, Content } = Layout;
@@ -32,6 +33,7 @@ function LayoutPage() {
         </div>
         <ModeSwitch />
         <DayNightSwitch status={themeType === "light" ? true : false} />
+        <AvatarOperation />
       </Header>
       <Content style={{ padding: "0 20px", overflow: "hidden" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>

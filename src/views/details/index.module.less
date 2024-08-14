@@ -1,0 +1,97 @@
+.root {
+    width: 200px;
+    height: 100%;
+    padding: 60px 0 0 50px;
+    box-sizing: border-box;
+
+    // background: #424345;
+    :global {
+        .menu {
+            width: 100%;
+            position: relative;
+            transform: skewY(-15deg);
+
+            .menu_item {
+                position: relative;
+                list-style: none;
+                background: #3e3f46;
+                padding: 15px;
+                transition: .5s;
+                z-index: var(--i);
+                cursor: pointer;
+
+                .menu_item_path {
+                    text-decoration: none;
+                    color: #ccc;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: .05em;
+                    transition: .5s;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -40px;
+                    width: 40px;
+                    height: 100%;
+                    background: #35383e;
+                    transform-origin: right;
+                    transform: skewY(45deg);
+                    transition: .5s;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -40px;
+                    left: 0;
+                    width: 100%;
+                    height: 40px;
+                    background: #35383e;
+                    transform-origin: bottom;
+                    transform: skewX(45deg);
+                    transition: .5s;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -40px;
+                    left: 0;
+                    width: 100%;
+                    height: 40px;
+                    background: #35383e;
+                    transform-origin: bottom;
+                    transform: skewX(45deg);
+                    transition: .5s;
+                }
+
+                &:hover {
+                    background: #33a3ee;
+                    transform: translateX(50px);
+
+                    &::before {
+                        background: #2982b9;
+                    }
+
+                    &::after {
+                        background: #1f5378;
+                    }
+                }
+
+                &:last-child {
+                    &::after {
+                        box-shadow: -100px 100px 20px rgba(0, 0, 0, .25);
+                    }
+                }
+            }
+        }
+
+    }
+}

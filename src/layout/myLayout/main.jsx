@@ -7,8 +7,9 @@ import styles from "./main.module.less";
 import { useSelector } from "react-redux";
 function LayoutPage() {
   const { Sider, Header } = Layout;
-  const { themeType } = useSelector((state) => state.theme);
+  const { themeObj, themeType } = useSelector((state) => state.theme);
   const collapsed = useSelector((state) => state.collapsed.value);
+  // const color = useSelector((state) => state.theme.primary);
   return (
     <Layout className={styles.root}>
       <Sider

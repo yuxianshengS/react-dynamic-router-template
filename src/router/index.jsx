@@ -1,20 +1,40 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { Spin } from "antd";
 import NotFound from "@/views/404";
+import Login from "@/views/login";
 import { formatterRouters } from "@/utils/formatterRouter.jsx";
+
+import { AuthProvider } from "./AuthProvider";
+import ProtectedRoute from "./ProtectedRoute";
 
 function generateRoutes(routes) {
   return routes?.map((item, index) => {
     const Component = React.lazy(item?.component);
-    if (item?.children) {
+    if (item?.children && item?.redirect) {
       return (
-        <Route key={index} path={item?.path} element={<Component />}>
-          {generateRoutes(item?.children)}
+        <Route
+          key={index}
+          path={item.path}
+          element={<ProtectedRoute element={<Component />} />}
+        >
+          {generateRoutes(item.children)}
+          <Route path={item.path} element={<Navigate to={item.redirect} />} />
         </Route>
       );
     }
-    return <Route key={index} path={item?.path} element={<Component />} />;
+    return (
+      <Route
+        key={index}
+        path={item?.path}
+        element={<ProtectedRoute element={<Component />} />}
+      />
+    );
   });
 }
 
@@ -49,15 +69,19 @@ function RouterPage() {
       Loading...
     </Spin>
   );
+
   return (
-    <Router>
-      <Suspense fallback={Loading}>
-        <Routes>
-          {generateRoutes(routers)}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Suspense fallback={Loading}>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+            {generateRoutes(routers)}
+          </Routes>
+        </Suspense>
+      </Router>
+    </AuthProvider>
   );
 }
 

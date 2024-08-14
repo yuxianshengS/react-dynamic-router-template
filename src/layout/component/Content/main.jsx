@@ -2,9 +2,7 @@ import { Layout, theme } from "antd";
 import styles from "./main.module.less";
 
 function ContentPage({ children }) {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const { token: { colorBgContainer, borderRadiusLG }} = theme.useToken();
   return (
     <Layout.Content
       className={styles.root}

@@ -43,7 +43,6 @@ function App() {
   }
 
   async function setMessage() {
-    console.log('????');
     if (Notification.permission !== "denied") {
       const res = await Notification.requestPermission();
       if (res === "granted") message();

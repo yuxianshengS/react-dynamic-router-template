@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Layout } from "antd";
+import React, { Suspense } from "react";
+import { Layout, Spin } from "antd";
 import { Outlet } from "react-router-dom";
 import { MenuPage, HeaderPage, ContentPage } from "../component";
 import styles from "./main.module.less";
@@ -10,6 +10,12 @@ function LayoutPage() {
   const { themeObj, themeType } = useSelector((state) => state.theme);
   const collapsed = useSelector((state) => state.collapsed.value);
   // const color = useSelector((state) => state.theme.primary);
+
+  const Loading = (
+    <Spin tip="Loading" spinning={true} size="large" fullscreen>
+      Loading...
+    </Spin>
+  );
   return (
     <Layout className={styles.root}>
       <Sider
@@ -34,7 +40,9 @@ function LayoutPage() {
           <HeaderPage />
         </Header>
         <ContentPage>
-          <Outlet />
+          <Suspense>
+            <Outlet />
+          </Suspense>
         </ContentPage>
       </Layout>
     </Layout>

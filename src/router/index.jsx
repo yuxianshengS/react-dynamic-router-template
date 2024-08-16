@@ -19,7 +19,7 @@ function generateRoutes(routes) {
     if (item?.children && item?.redirect) {
       return (
         <Route
-          key={index}
+          key={item.path}
           path={item.path}
           element={<ProtectedRoute element={<Component />} />}
         >
@@ -30,7 +30,7 @@ function generateRoutes(routes) {
     }
     return (
       <Route
-        key={index}
+        key={item.path}
         path={item?.path}
         element={<ProtectedRoute element={<Component />} />}
       />

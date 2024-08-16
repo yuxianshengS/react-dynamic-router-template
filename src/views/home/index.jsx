@@ -1,6 +1,5 @@
+import React, { useEffect } from "react";
 import { Table } from "antd";
-import { DayNightSwitch } from "@/components";
-
 export default function HomePage() {
   const dataSource = [
     {
@@ -34,6 +33,8 @@ export default function HomePage() {
       key: "address",
     },
   ];
+
+  useEffect(() => {}, []);
 
   return <Table dataSource={dataSource} columns={columns} />;
 }

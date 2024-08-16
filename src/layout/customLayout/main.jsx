@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Layout, Breadcrumb } from "antd";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -49,7 +49,9 @@ function LayoutPage() {
             backgroundColor: themeType === "dark" ? "var(--CommColor)" : "",
           }}
         >
-          <Outlet />
+          <Suspense>
+            <Outlet />
+          </Suspense>
         </div>
       </Content>
     </Layout>

@@ -7,15 +7,9 @@ import styles from "./main.module.less";
 import { useSelector } from "react-redux";
 function LayoutPage() {
   const { Sider, Header } = Layout;
-  const { themeObj, themeType } = useSelector((state) => state.theme);
-  const collapsed = useSelector((state) => state.collapsed.value);
-  // const color = useSelector((state) => state.theme.primary);
+  const { themeType } = useSelector((state) => state.theme);
+  const collapsed = useSelector((state) => state.useStore.collapsed);
 
-  const Loading = (
-    <Spin tip="Loading" spinning={true} size="large" fullscreen>
-      Loading...
-    </Spin>
-  );
   return (
     <Layout className={styles.root}>
       <Sider

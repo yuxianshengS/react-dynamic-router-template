@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Switch } from "antd";
 import styles from "./index.module.less";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateModeStatus } from "@/store/modules/useStore";
 
 export default function ModeSwitch() {
   const $router = useNavigate();
   const location = useLocation();
-  const [status, setStatus] = useState(true);
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.useStore.modeStatus);
+
   function handleMode(value) {
-    setStatus(value);
-    if (value) $router("/page1");
-    else $router("/home");
+    dispatch(updateModeStatus(!status));
   }
 
   useEffect(() => {
-    if (location.pathname === "/home") setStatus(false);
-    else setStatus(true);
-  }, [location.pathname]);
+    if (status) $router("/home");
+    else $router("/page1");
+  }, [status]);
 
   return (
     <Switch

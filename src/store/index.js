@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./modules/themeStore";
-import collapsedReducer from "./modules/collapsedStore";
+import useStore from "./modules/useStore";
 import useRoutersReducer from "./modules/useRouters";
 
 const store = configureStore({
   reducer: {
     theme: counterReducer,
-    collapsed: collapsedReducer,
+    useStore: useStore,
     useRouters: useRoutersReducer,
   },
 });

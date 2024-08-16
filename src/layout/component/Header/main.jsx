@@ -4,14 +4,14 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import styles from "./main.module.less";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateCollapsed } from "@/store/modules/collapsedStore";
+import { updateCollapsed } from "@/store/modules/useStore";
 import { DayNightSwitch, ModeSwitch } from "@/components";
 import { AvatarOperation } from "../../component";
 
 function HeaderPage() {
   const dispatch = useDispatch();
   const { themeType } = useSelector((state) => state.theme);
-  const collapsed = useSelector((state) => state.collapsed.value);
+  const collapsed = useSelector((state) => state.useStore.collapsed);
 
   return (
     <div className={styles.root}>

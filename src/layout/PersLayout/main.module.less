@@ -1,0 +1,24 @@
+.root {
+    height: 100%;
+    background-color: #EFF0F4;
+
+    :global {
+        .loading {
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+        }
+
+        .main_content {
+            position: absolute;
+            top: 60px;
+            left: 247px;
+            width: calc(100vw - 250px) !important;
+            height: calc(100vh - 60px);
+            background-color: #EFF0F4;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+    }
+}

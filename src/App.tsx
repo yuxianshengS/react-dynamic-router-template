@@ -48,7 +48,7 @@ function App() {
       if (res === "granted") message();
     } else message();
   }
-  setMessage();
+  // setMessage();
   return (
     <ConfigProvider
       theme={{

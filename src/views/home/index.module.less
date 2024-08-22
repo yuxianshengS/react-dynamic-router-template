@@ -1,0 +1,56 @@
+.root {
+    display: flex;
+    width: 100%;
+
+    :global {
+        .home_left_module {
+            flex: 3;
+        }
+
+        .module_card {
+            background-color: #fff;
+            border-radius: 15px;
+
+            .ant-radio-button-wrapper {
+                margin: 0 10px;
+                border-radius: 4px;
+                overflow: hidden;
+                border: 1px solid #eee;
+            }
+
+            .ant-radio-button-checked {
+                background-color: #3303D3;
+            }
+
+            .module_card_title {
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            .module_card_desc {
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+            .module_card_domain {
+                font-size: 12px;
+                color: #666;
+            }
+
+            .module_card_btn {
+                color: #FC8424;
+                border-color: #FC8424;
+                border-radius: 15px;
+                background-color: #fff;
+            }
+
+            .module_card_text {
+                color: #FC8424;
+            }
+        }
+
+        .ant-card-body {
+            padding: 20px 15px;
+        }
+    }
+}

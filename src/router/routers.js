@@ -2,7 +2,7 @@ export const dynamicRouter = [
   {
     path: "/",
     redirect: "home",
-    root: "myLayout",
+    root: "PersLayout",
     children: [
       {
         path: "/home",

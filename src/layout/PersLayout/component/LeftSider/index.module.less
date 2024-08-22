@@ -1,0 +1,58 @@
+.root {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    min-height: 100%;
+    background: transparent !important;
+    background-image: url(./bg.png) !important;
+    background-size: 100% 100% !important;
+    overflow: hidden;
+    :global {
+        .main_logo {
+            height: 60px;
+            font-size: 20px;
+        }
+
+        .ant-menu-root {
+            width: 180px;
+            height: calc(100vh - 80px);
+            background: #fff;
+
+            .ant-menu-item {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .ant-menu-item:not(.ant-menu-item-selected):hover {
+                background-color: transparent;
+                background-image: url(./menu.png);
+                background-size: 100% 100% !important;
+            }
+
+            .ant-menu-submenu-title {
+                margin: 0;
+            }
+
+            .ant-menu-submenu {
+                .ant-menu-sub {
+                    background: #fff !important;
+                }
+            }
+
+            .ant-menu-submenu-title:hover {
+                border-radius: 0;
+                background: transparent;
+                background-image: url(./menu.png);
+                background-size: 100% 100% !important;
+            }
+
+            .ant-menu-item-selected {
+                background: transparent;
+                background-image: url(./menu.png);
+                background-size: 100% 100% !important;
+            }
+        }
+    }
+}

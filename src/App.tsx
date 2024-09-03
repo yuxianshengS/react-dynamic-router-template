@@ -3,16 +3,17 @@ import RouterPage from "@/router";
 import { ConfigProvider } from "antd";
 import enMessages from "antd/locale/en_US";
 import zhMessages from "antd/locale/zh_CN";
+
 import "dayjs/locale/zh-cn";
 import { useSelector } from "react-redux";
 import packageName from "/package";
 
 function App() {
   const { themeObj, themeType } = useSelector((state: any) => state.theme);
-  // const messages = {
-  //   "zh-CN": zhMessages,
-  //   "en-US": enMessages,
-  // };
+  const messages = {
+    "zh-CN": zhMessages,
+    "en-US": enMessages,
+  };
   // const [locale, setLocale] = useState("en-US"); // 初始语言设置为英文
 
   function message() {
@@ -51,6 +52,7 @@ function App() {
   // setMessage();
   return (
     <ConfigProvider
+      locale={zhMessages}
       theme={{
         token: themeObj[themeType],
         components: {

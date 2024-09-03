@@ -1,4 +1,35 @@
 body {
   --CommColor: rgb(31, 31, 31);
   --ColorLight: #001529;
+
+  --PrimaryColor: #522FD1
+}
+
+.ant-btn-primary {
+  background-color: var(--PrimaryColor) !important;
+}
+
+.ant-select-selector {
+  background-color: #fff !important;
+
+  &:focus {
+    border-color: red !important;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+}
+
+.ant-btn-link {
+  color: var(--PrimaryColor) !important;
+}
+
+.ant-pagination-item-active {
+  background-color: var(--PrimaryColor) !important;
+
+  a {
+    color: #fff !important;
+  }
+}
+
+.ant-input-outlined {
+  background-color: #F6F7FB !important;
 }

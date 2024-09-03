@@ -14,59 +14,93 @@ export const dynamicRouter = [
         },
       },
       {
-        path: "/details",
-        name: "details",
+        path: "/contentManagement",
+        name: "contentManagement",
         meta: {
-          name: "详情",
-          icon: "icon-guide",
-          blank: true,
-        },
-      },
-      {
-        path: "/uadn-alarm-rule-s",
-        name: "uadn-alarm-rule-s",
-        meta: {
-          name: "统一应用告警规则配置",
-          icon: "icon-logistics-land-transport",
-          blank: true,
-        },
-      },
-      {
-        path: "/batching-views",
-        name: "batching-views",
-        meta: {
-          name: "批处理",
+          name: "内容管理",
           icon: "icon-money-exchange-rate",
         },
         children: [
           {
-            path: "/batching-views/batching-home",
-            name: "batching-home",
+            path: "/contentManagement/housingManagement",
+            name: "housingManagement",
             meta: {
-              name: "业务系统首页",
-              icon: "icon-money-finance-buyer",
+              name: "房源管理",
               blank: true,
             },
           },
           {
-            path: "/batching-views/job-details",
-            name: "job-details",
+            path: "/contentManagement/pictureMangement",
+            name: "pictureMangement",
             meta: {
-              name: "作业详情",
-              icon: "",
+              name: "图库管理",
               blank: true,
             },
           },
           {
-            path: "/batching-views/alarm-list",
-            name: "alarm-list",
+            path: "/contentManagement/orderManagement",
+            name: "orderManagement",
             meta: {
-              name: "业务系统首页",
+              name: "订单管理",
               blank: true,
             },
           },
         ],
       },
+      // {
+      //   path: "/details",
+      //   name: "details",
+      //   meta: {
+      //     name: "详情",
+      //     icon: "icon-guide",
+      //     blank: true,
+      //   },
+      // },
+      // {
+      //   path: "/uadn-alarm-rule-s",
+      //   name: "uadn-alarm-rule-s",
+      //   meta: {
+      //     name: "统一应用告警规则配置",
+      //     icon: "icon-logistics-land-transport",
+      //     blank: true,
+      //   },
+      // },
+      // {
+      //   path: "/batching-views",
+      //   name: "batching-views",
+      //   meta: {
+      //     name: "批处理",
+      //     icon: "icon-money-exchange-rate",
+      //   },
+      //   children: [
+      //     {
+      //       path: "/batching-views/batching-home",
+      //       name: "batching-home",
+      //       meta: {
+      //         name: "业务系统首页",
+      //         icon: "icon-money-finance-buyer",
+      //         blank: true,
+      //       },
+      //     },
+      //     {
+      //       path: "/batching-views/job-details",
+      //       name: "job-details",
+      //       meta: {
+      //         name: "作业详情",
+      //         icon: "",
+      //         blank: true,
+      //       },
+      //     },
+      //     {
+      //       path: "/batching-views/alarm-list",
+      //       name: "alarm-list",
+      //       meta: {
+      //         name: "业务系统首页",
+      //         blank: true,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   {

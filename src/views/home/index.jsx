@@ -12,11 +12,37 @@ export default function HomePage() {
   const EchartRadarRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const pageviewsList = [
-    { value: 440, title: "今日访问量", data: [2, 5, 4, 9, 4, 5, 7] },
-    { value: 440, title: "昨日访问量", data: [2, 5, 4, 9, 4, 5, 7] },
-    { value: 440, title: "本周访问量", data: [2, 5, 4, 9, 4, 5, 7] },
-    { value: 440, title: "本月访问量", data: [2, 5, 4, 9, 4, 5, 7] },
+    {
+      value: 440,
+      title: "今日访问量",
+      data: [2, 5, 4, 9, 4, 5, 7],
+      color: ["#F8C937", "#F7E4A8"],
+    },
+    {
+      value: 440,
+      title: "昨日访问量",
+      data: [2, 5, 4, 9, 4, 5, 7],
+      color: ["#3201D1", "#DBDDFE"],
+    },
+    {
+      value: 440,
+      title: "本周访问量",
+      data: [2, 5, 4, 9, 4, 5, 7],
+      color: ["#0E980F", "#C8E8CB"],
+    },
+    {
+      value: 440,
+      title: "本月访问量",
+      data: [2, 5, 4, 9, 4, 5, 7],
+      color: ["#FB8125", "#F6D6BD"],
+    },
   ];
+
+  const components = {
+    header: {
+      cell: (props) => <th {...props} style={{ backgroundColor: "#E5E5FF" }} />,
+    },
+  };
 
   const dataSource = [
     {
@@ -32,13 +58,13 @@ export default function HomePage() {
       address: "西湖区湖底公园1号",
     },
     {
-      key: "2",
+      key: "3",
       name: "胡彦祖",
       age: 42,
       address: "西湖区湖底公园1号",
     },
     {
-      key: "2",
+      key: "4",
       name: "胡彦祖",
       age: 42,
       address: "西湖区湖底公园1号",
@@ -68,16 +94,19 @@ export default function HomePage() {
     },
   ];
 
+  const listItemStyle = (index) => ({
+    backgroundColor: index % 2 === 0 ? "#F2F2FF" : "#FFF", // 斑马线背景色
+  });
   const listData = [
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
-    { name: "asa" },
+    { name: "asa", id: 1 },
+    { name: "asa", id: 2 },
+    { name: "asa", id: 3 },
+    { name: "asa", id: 4 },
+    { name: "asa", id: 5 },
+    { name: "asa", id: 6 },
+    { name: "asa", id: 7 },
+    { name: "asa", id: 8 },
+    { name: "asa", id: 9 },
   ];
 
   useEffect(() => {
@@ -85,34 +114,45 @@ export default function HomePage() {
   }, []);
 
   function getEcharts() {
-    const option = {
-      barCategoryGap: 0,
-      grid: {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-      },
-      xAxis: {
-        axisLine: { show: false },
-        axisLabel: { show: false },
-        axisTick: { show: false },
-        data: ["A", "B", "C", "D", "E", "F", "G"],
-      },
-      yAxis: {
-        splitLine: { show: false },
-        axisLine: { show: false },
-        axisLabel: { show: false },
-      },
-      series: [
-        {
-          name: "Example",
-          type: "bar",
-          data: [5, 20, 36, 10, 10, 20, 30],
+    EchartRef.current.forEach((item, index) => {
+      const option = {
+        barCategoryGap: 0,
+        grid: {
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
         },
-      ],
-    };
-    EchartRef.current.forEach((item) => {
+        xAxis: {
+          axisLine: { show: false },
+          axisLabel: { show: false },
+          axisTick: { show: false },
+          data: ["A", "B", "C", "D", "E", "F", "G"],
+        },
+        yAxis: {
+          splitLine: { show: false },
+          axisLine: { show: false },
+          axisLabel: { show: false },
+        },
+        series: [
+          {
+            name: "Example",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20, 30],
+            itemStyle: {
+              normal: {
+                color: function (params) {
+                  // 每隔2根柱子切换颜色
+                  const A = pageviewsList[index].color[0];
+                  const B = pageviewsList[index].color[1];
+                  const colors = [A, B];
+                  return colors[params.dataIndex % colors.length];
+                },
+              },
+            },
+          },
+        ],
+      };
       const myChart = echarts.init(item);
       myChart.setOption(option);
     });
@@ -243,7 +283,7 @@ export default function HomePage() {
           // animationDurationUpdate: 0,
           animationEasing: "cubicOut", //当波浪从底部开始上升时，初始动画的简化方法。
           itemStyle: {
-            opacity: 0.8, // 波浪的透明度
+            opacity: 0.6, // 波浪的透明度
             shadowBlur: 10, // 波浪的阴影范围
           },
           outline: {
@@ -347,7 +387,9 @@ export default function HomePage() {
             >
               <div className="flex-vcenter">
                 <div className="mr-5">
-                  <div className="mb-16">{item.value}</div>
+                  <div className="mb-16" style={{ color: item.color[0] }}>
+                    {item.value}
+                  </div>
                   <div>{item.title}</div>
                 </div>
                 <div
@@ -396,7 +438,9 @@ export default function HomePage() {
                 pagination={false}
                 dataSource={dataSource}
                 columns={columns}
+                components={components}
                 scroll={{ y: 200 }}
+                rowClassName="custom-row-height"
               />
             </div>
           </Card>
@@ -445,10 +489,10 @@ export default function HomePage() {
                 data={listData}
                 height={250}
                 itemHeight={20}
-                itemKey="email"
+                itemKey="id"
               >
-                {(item) => (
-                  <List.Item key={item.email}>
+                {(item, index) => (
+                  <List.Item key={item.id} style={listItemStyle(index)}>
                     <div>Content</div>
                   </List.Item>
                 )}

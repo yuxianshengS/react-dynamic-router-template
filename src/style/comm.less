@@ -47,7 +47,7 @@
 
 .flex-class(@i: 0) when (@i <=1000) {
   .flex-@{i} {
-    flex: unit(@i, px) !important;
+    flex: @i !important;
   }
 
   .flex-class(@i + 1);

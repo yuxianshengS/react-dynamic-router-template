@@ -261,6 +261,7 @@ export function PieOption() {
       radius: [65 - i * 15 + "%", 57 - i * 15 + "%"],
       center: ["30%", "50%"],
       label: { show: false },
+      itemStyle: { borderRadius: 20 },
       data: [
         {
           value: v.value,
@@ -284,6 +285,7 @@ export function PieOption() {
       hoverAnimation: false, //鼠标移入变大
       radius: [65 - i * 15 + "%", 57 - i * 15 + "%"],
       center: ["30%", "50%"],
+      itemStyle: { borderRadius: 20 },
       label: {
         show: false,
       },
@@ -316,7 +318,6 @@ export function PieOption() {
       },
     });
   });
-
   return {
     backgroundColor: "#fff",
     color: color,
@@ -340,7 +341,6 @@ export function PieOption() {
           fontSize: 20,
           formatter: function (params) {
             let item = chartData[params];
-            console.log(item);
             return `{line|}{circle|●}{name|${item.name}} {circle|${item.percent}}`;
           },
           interval: 0,

@@ -274,29 +274,18 @@ export default function HomePage() {
         {
           type: "liquidFill",
           radius: "60%",
-          color: ["#F89D2A"],
           center: ["50%", "60%"],
-          data: [0.5, 0.5, 0.5, 0.5],
+          color: ["#F6DB7E", "#F9BE34", "#F89D2A"],
+          data: [0.5, 0.5, 0.5], // data个数代表波浪数
           amplitude: 15,
-          // waveAnimation: false,
-          // animationDuration: 0,
-          // animationDurationUpdate: 0,
-          animationEasing: "cubicOut", //当波浪从底部开始上升时，初始动画的简化方法。
+          // 图形样式
           itemStyle: {
-            opacity: 0.6, // 波浪的透明度
-            shadowBlur: 10, // 波浪的阴影范围
-          },
-          outline: {
-            show: true, // 显示轮廓
-            borderDistance: 0, // 轮廓的边距，设置为 0 表示没有额外的边距
-            itemStyle: {
-              borderWidth: 4, // 边框的粗细
-              borderColor: "#FC8424", // 边框的颜色
-            },
+            opacity: 1, // 波浪的透明度
+            shadowBlur: 0, // 波浪的阴影范围
           },
           backgroundStyle: {
-            borderWidth: 2, //内边框
-            borderColor: "#F9C739", // 边框的颜色
+            borderWidth: 2,
+            borderColor: "#FC8424",
             color: "#fff",
           },
           label: {
@@ -305,6 +294,9 @@ export default function HomePage() {
               color: "#000",
             },
             position: ["50%", "20%"],
+          },
+          outline: {
+            show: false,
           },
         },
       ],

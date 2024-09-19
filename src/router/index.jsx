@@ -69,7 +69,6 @@ function RouterPage() {
       Loading...
     </Spin>
   );
-
   return (
     <AuthProvider>
       <Router>

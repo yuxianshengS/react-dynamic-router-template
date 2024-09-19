@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { formatterRouters } from "@/utils/formatterRouter";
+import { dynamicRouter } from "@/router/routers";
 
 const initialState = {
   value: [],
@@ -9,7 +11,8 @@ const useRoutersSlice = createSlice({
   initialState,
   reducers: {
     initRouters: (state, actio) => {
-      state.value = actio.payload;
+      // state.value = actio.payload;
+      state.value = dynamicRouter;
     },
   },
 });

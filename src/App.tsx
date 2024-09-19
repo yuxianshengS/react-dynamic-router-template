@@ -5,11 +5,15 @@ import enMessages from "antd/locale/en_US";
 import zhMessages from "antd/locale/zh_CN";
 
 import "dayjs/locale/zh-cn";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { initRouters } from "@/store/modules/useRouters";
+
 import packageName from "/package";
 
 function App() {
+  const dispatch = useDispatch();
   const { themeObj, themeType } = useSelector((state: any) => state.theme);
+
   const messages = {
     "zh-CN": zhMessages,
     "en-US": enMessages,
@@ -50,6 +54,7 @@ function App() {
     } else message();
   }
   // setMessage();
+  dispatch(initRouters());
   return (
     <ConfigProvider
       locale={zhMessages}

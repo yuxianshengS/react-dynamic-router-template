@@ -8,15 +8,12 @@ import {
   CandlestickOption,
 } from "../EchartsOption";
 import styles from "./index.module.less";
-import { useLocation, Link } from 'react-router-dom';
 export default function UserAnalysisPage() {
-    const location = useLocation();
   const EchartLineRef = useRef(null);
   const EchartPieRef = useRef(null);
   const EchartRosePieRef = useRef(null);
   const EchartCandlestickRef = useRef(null);
-    console.log(location ,'location');
-    
+
   const Tables = (
     <>
       <div className="flex">

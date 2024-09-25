@@ -71,20 +71,25 @@ export default function UserAnalysisPage() {
 
   useEffect(() => {
     init();
+    window.addEventListener("resize", init);
   }, []);
 
   function init() {
     const myChart1 = echarts.init(EchartLineRef.current);
     myChart1.setOption(LineOption());
+    myChart1.resize();
 
     const myChart2 = echarts.init(EchartPieRef.current);
     myChart2.setOption(PieOption());
+    myChart2.resize();
 
     const myChart3 = echarts.init(EchartRosePieRef.current);
     myChart3.setOption(RosePieOption());
+    myChart3.resize();
 
     const myChart4 = echarts.init(EchartCandlestickRef.current);
     myChart4.setOption(CandlestickOption());
+    myChart4.resize();
   }
 
   const onChange = (key) => {

@@ -111,6 +111,8 @@ export default function HomePage() {
 
   useEffect(() => {
     getEcharts();
+
+    window.addEventListener("resize", getEcharts);
   }, []);
 
   function getEcharts() {
@@ -155,6 +157,7 @@ export default function HomePage() {
       };
       const myChart = echarts.init(item);
       myChart.setOption(option);
+      myChart.resize();
     });
 
     const option2 = {
@@ -260,6 +263,7 @@ export default function HomePage() {
     };
     const myChart2 = echarts.init(EchartLineRef.current);
     myChart2.setOption(option2);
+    myChart2.resize();
 
     const option3 = {
       title: {
@@ -303,6 +307,7 @@ export default function HomePage() {
     };
     const myChart3 = echarts.init(EchartCircleRef.current);
     myChart3.setOption(option3);
+    myChart3.resize();
 
     const option4 = {
       color: ["#F4C734", "#945AAD"],
@@ -361,6 +366,7 @@ export default function HomePage() {
     };
     const myChart4 = echarts.init(EchartRadarRef.current);
     myChart4.setOption(option4);
+    myChart4.resize();
   }
 
   return (

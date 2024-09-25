@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Card, Table, Button, Form, Select, Space, Image } from "antd";
 import styles from "./index.module.less";
+import { CommAnnulus } from "@/components";
 
 export default function HousingManagementPage() {
   const [tableData, setTableData] = useState([]);
@@ -139,9 +140,11 @@ export default function HousingManagementPage() {
     </Card>
   );
 
+  const TablesTow = <CommAnnulus />;
+
   const items = [
     { key: "1", label: "全部房源", children: Tables },
-    { key: "2", label: "房源分类", children: "Content of Tab Pane 2" },
+    { key: "2", label: "房源分类", children: TablesTow },
   ];
 
   const onChange = (key) => {
